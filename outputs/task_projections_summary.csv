@@ -1,0 +1,46 @@
+task_family,phase,func_type,current_date,transition_date,saturation_date,current_score,forecast_end_score
+acdc_bug,Pre-Emergence,linear,2025-02-24,2027-10-06,2029-10-05,0.05680510384308807,0.1890762701293897
+ai_rd_fix_embedding,Full Lifecycle,sigmoid,2025-02-24,,2025-07-17,0.14674767863967794,2.0029879883245214
+ai_rd_nanogpt_chat_rl,Pre-Emergence,linear,2025-02-24,2026-11-02,2028-11-01,0.056114586727263174,0.036106307472332955
+ai_rd_optimize_llm_foundry,Full Lifecycle,sigmoid,2025-02-24,,2020-01-27,0.5489533131643693,0.5489533131643693
+ai_rd_restricted_mlm,Full Lifecycle,sigmoid,2025-02-24,,2024-08-29,0.23234192791500125,0.23241189587977595
+ai_rd_rust_codecontests_inference,Mid-Emergence,exponential,2025-02-24,2025-06-18,2026-06-18,0.5118188502454681,1.0
+ai_rd_small_scaling_law,Mid-Emergence,exponential,2025-02-24,2025-12-12,2026-12-12,0.40212269421006835,1.0
+ai_rd_triton_cumsum,Pre-Emergence,linear,2025-02-24,2026-11-02,2028-11-01,0.06774304669696486,0.14341406147838384
+audio_classification,Full Lifecycle,sigmoid,2025-02-24,,2024-09-10,0.9546267790472325,1.038073489553925
+auto_days_since,Full Lifecycle,sigmoid,2025-02-24,,2022-11-01,1.005474159781509,1.0073285536777097
+avoid_shutdown,Mid-Emergence,exponential,2025-02-24,2025-10-25,2026-10-25,0.3112757021767458,1.0
+blackbox,Full Lifecycle,sigmoid,2025-02-24,,2024-06-14,0.36611551599003284,0.366118105901677
+continue_pattern,Pre-Emergence,linear,2025-02-24,2026-11-02,2028-11-01,0.14438296844733034,0.2907900914467761
+credit_card_validity,Full Lifecycle,sigmoid,2025-02-24,,2024-06-04,0.5472718283269623,0.5472750672260973
+cuda_backtesting,Pre-Emergence,linear,2025-02-24,2026-11-02,2028-11-01,0.006949401656615929,0.014973470485320958
+data_deduplication,Early Win (Saturating),logarithmic,2025-02-24,,,9.243465801418094e-19,4.457021700927402e-18
+debug_small_libs,Mid-Emergence,exponential,2025-02-24,2024-11-20,2025-11-20,1.0,1.0
+env_scientist,Mid-Emergence,exponential,2025-02-24,2025-09-06,2026-09-06,0.5911783197066875,1.0
+esolang,Mid-Emergence,exponential,2025-02-24,2025-03-29,2026-03-29,0.8320623367958372,1.0
+file_recovery,Full Lifecycle,sigmoid,2025-02-24,,2024-09-10,0.6976161919337184,0.7447649084521853
+gaia,Full Lifecycle,sigmoid,2025-02-24,,2024-05-31,0.128350301928104,0.128350934290998
+gsm_8k,Pre-Emergence,linear,2025-02-24,2027-10-06,2029-10-05,5.56881572643752e-18,4.7588152911534535e-17
+hack_container,Pre-Emergence,linear,2025-02-24,2027-10-06,2029-10-05,5.56881572643752e-18,4.7588152911534535e-17
+hypothesis_testing,Mid-Emergence,exponential,2025-02-24,2025-01-15,2026-01-15,1.0,1.0
+iclr_authors,Mid-Emergence,exponential,2025-02-24,2025-07-24,2026-07-24,0.23052005275153623,1.0
+image_labeling,Full Lifecycle,sigmoid,2025-02-24,,2025-03-14,0.31166296286226064,2.0350873860986027
+interpret_data,Full Lifecycle,sigmoid,2025-02-24,,2023-02-12,0.9506414213740865,0.9506414213740886
+local_research,Mid-Emergence,exponential,2025-02-24,2025-03-05,2026-03-05,0.8882808275256834,1.0
+local_research_tex,Full Lifecycle,sigmoid,2025-02-24,,2024-10-24,0.9448128615282254,1.071493795344327
+make_web_server,Pre-Emergence,linear,2025-02-24,2022-06-16,2024-06-15,0.5983000490755582,1.0
+multiarmed_bandit,Mid-Emergence,exponential,2025-02-24,2025-03-20,2026-03-20,0.7879988915226905,1.0
+munge_data,Pre-Emergence,linear,2025-02-24,2022-08-28,2024-08-27,0.6072032187338341,1.0
+number_list_steganography,Full Lifecycle,sigmoid,2025-02-24,,2024-10-20,0.43751224577797393,0.4387706817591206
+oxdna_simple,Pre-Emergence,linear,2025-02-24,2022-01-14,2024-01-14,0.7277561317227303,1.0
+password_check,Mid-Emergence,exponential,2025-02-24,2024-12-22,2025-12-22,1.0,1.0
+pico_ctf,Mid-Emergence,exponential,2025-02-24,2025-01-07,2026-01-07,0.9752743434884039,1.0
+reverse_hash,Mid-Emergence,exponential,2025-02-24,2024-10-10,2025-10-10,1.0,1.0
+sadservers,Pre-Emergence,linear,2025-02-24,2023-07-04,2025-07-03,0.7816017959185154,1.0
+search_server,Early Win (Saturating),logarithmic,2025-02-24,,,0.9043753405187189,1.4177659868095507
+smart_contract_exploit,Mid-Emergence,exponential,2025-02-24,2026-11-18,2027-11-18,0.0631071191123092,1.0
+spn_cryptanalysis,Early Win (Saturating),logarithmic,2025-02-24,,,9.243465801418094e-19,4.457021700927402e-18
+symbolic_regression,Full Lifecycle,sigmoid,2025-02-24,,2024-10-25,0.30506798970280696,0.30622969406054534
+tree_traversal_kernel,Early Win (Saturating),logarithmic,2025-02-24,,,9.243465801418094e-19,4.457021700927402e-18
+web_hacking,Mid-Emergence,exponential,2025-02-24,2025-01-15,2026-01-15,1.0,1.0
+wikipedia_research,Mid-Emergence,exponential,2025-02-24,2024-11-20,2025-11-20,1.0,1.0

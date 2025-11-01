@@ -1,0 +1,14 @@
+{
+  "params_to_eci": {
+    "slope": null,
+    "intercept": null,
+    "r": null,
+    "n": 0
+  },
+  "compute_to_eci": {
+    "eci_inf": 278.8688163845977,
+    "A": 999.99999999824,
+    "alpha": 0.03309389170520264,
+    "formula": "ECI = 278.9 - 1000.00 * C^(-0.0331)"
+  }
+}

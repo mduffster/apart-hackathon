@@ -1,0 +1,14 @@
+{
+  "method": "Kaplan-style",
+  "formula": "ECI = 278.9 - 1000.00 * C^(-0.0331)",
+  "r2": 0.7563829001643021,
+  "has_ceiling": true,
+  "params": [
+    278.8688163845977,
+    999.99999999824,
+    0.03309389170520264
+  ],
+  "data_source": "ECI models from 2023-01-01 onwards",
+  "n_models": 80,
+  "ceiling": 278.8688163845977
+}

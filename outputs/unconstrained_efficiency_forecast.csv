@@ -1,0 +1,7 @@
+scenario,target_years,target_eci,kaplan_compute,tax,actual_compute_needed,available_compute,gap,achievable,reason
+1 Year,1,163.41004806932827,6.251697561460402e+29,0.36119114862521906,2.2580578230813634e+29,2.00000000000004e+27,112.90289115406591,False,Within Kaplan ceiling
+2 Years,2,192.14608564417205,1e+50,0.22707470761043025,2.2707470761043026e+49,8.00000000000016e+27,2.8384338451303215e+21,False,Within Kaplan ceiling
+3 Years,3,220.88212321901585,1e+50,0.1,1.0000000000000001e+49,3.200000000000064e+28,3.124999999999938e+20,False,Within Kaplan ceiling
+5 Years,5,278.35419836870346,,,,,,False,Exceeds Kaplan ceiling
+10 Years,10,422.03438624292244,,,,,,False,Exceeds Kaplan ceiling
+20 Years,20,709.3947619913604,,,,,,False,Exceeds Kaplan ceiling
