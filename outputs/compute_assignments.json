@@ -1,0 +1,75 @@
+{
+  "gpt2": {
+    "compute": 1.92e+21,
+    "method": "manual_epoch",
+    "provenance": "gpt2-xl from Epoch all_ai_models.csv",
+    "note": "Used gpt2-xl as proxy for gpt2"
+  },
+  "gpt_3_5_turbo": {
+    "compute": 1.3813767742745515e+24,
+    "compute_low": 3.2044327137828676e+23,
+    "compute_high": 5.954881762059259e+24,
+    "method": "eci_estimate",
+    "eci": 119.41346056111522,
+    "eci_source": "gpt-3.5-turbo-1106",
+    "confidence": 95,
+    "provenance": "Estimated from ECI using C\u2192ECI inverse"
+  },
+  "gpt_4": {
+    "compute": 2.1e+25,
+    "method": "epoch_match",
+    "source": "GPT-4",
+    "confidence": 100,
+    "provenance": "Matched to Epoch all_ai_models.csv"
+  },
+  "gpt_4_turbo": {
+    "compute": 2.1e+25,
+    "method": "manual_proxy",
+    "provenance": "GPT-4 from Epoch (turbo is tuned version)",
+    "note": "Assumed same compute as GPT-4"
+  },
+  "gpt_4o": {
+    "compute": 8.66331653246133e+24,
+    "compute_low": 2.0096627816154167e+24,
+    "compute_high": 3.734609309990313e+25,
+    "method": "eci_estimate",
+    "eci": 129.08328664033564,
+    "eci_source": "gpt-4o-2024-11-20",
+    "confidence": 90,
+    "provenance": "Estimated from ECI using C\u2192ECI inverse"
+  },
+  "o1_preview": {
+    "compute": 2.5043453385378528e+25,
+    "compute_low": 5.80942598635681e+24,
+    "compute_high": 1.0795809412814967e+26,
+    "method": "eci_estimate",
+    "eci": 134.67401049448446,
+    "eci_source": "o1-preview-2024-09-12",
+    "confidence": 90,
+    "provenance": "Estimated from ECI using C\u2192ECI inverse"
+  },
+  "claude_3_opus": {
+    "compute": 5.563148765327616e+24,
+    "compute_low": 1.2905049677426732e+24,
+    "compute_high": 2.3981793916920117e+25,
+    "method": "eci_estimate",
+    "eci": 126.75047134402728,
+    "eci_source": "claude-3-opus-20240229",
+    "confidence": 90,
+    "provenance": "Estimated from ECI using C\u2192ECI inverse"
+  },
+  "claude_3_5_sonnet": {
+    "compute": 2.700000000000001e+25,
+    "method": "epoch_match",
+    "source": "Claude 3.5 Sonnet",
+    "confidence": 100,
+    "provenance": "Matched to Epoch all_ai_models.csv"
+  },
+  "claude_3_7_sonnet": {
+    "compute": 3.3499999999999998e+25,
+    "method": "epoch_match",
+    "source": "Claude 3.7 Sonnet",
+    "confidence": 100,
+    "provenance": "Matched to Epoch all_ai_models.csv"
+  }
+}

@@ -1,6 +1,0 @@
-scenario,target_eci,kaplan_compute,agi_years,achieved
-Baseline (current fit),634.8856696085818,1e+60,58,True
-Optimistic (2x slope),317.4428348042909,1e+60,58,True
-Pessimistic (0.5x slope),1269.7713392171636,1e+60,58,True
-Higher baseline (+0.1),577.5863709137832,1e+60,58,True
-Power law (superlinear),300.0,1e+60,58,True

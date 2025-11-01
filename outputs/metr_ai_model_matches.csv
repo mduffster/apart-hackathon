@@ -1,9 +1,0 @@
-metr_alias,metr_model_id,ai_model_name,release_date,training_compute_flops,parameters,organization,domain
-GPT-2,gpt2,GPT-2 (124M),2019-02-14,7.936e+20,124000000.0,OpenAI,Language
-GPT-4 0125,gpt-4-0125-preview,GPT-4,2023-03-15,2.1e+25,1800000000000.0,OpenAI,"Multimodal,Language,Vision"
-GPT-4 0314,gpt-4-0314,GPT-4,2023-03-15,2.1e+25,1800000000000.0,OpenAI,"Multimodal,Language,Vision"
-GPT-4 1106,gpt-4-1106-preview,GPT-4,2023-03-15,2.1e+25,1800000000000.0,OpenAI,"Multimodal,Language,Vision"
-GPT-4 Turbo,gpt-4-turbo-2024-04-09,GPT-4,2023-03-15,2.1e+25,1800000000000.0,OpenAI,"Multimodal,Language,Vision"
-GPT-4o,gpt-4o-2024-05-13,GPT-4,2023-03-15,2.1e+25,1800000000000.0,OpenAI,"Multimodal,Language,Vision"
-davinci-002 (GPT-3),davinci-002,GPT-3 175B (davinci),2020-05-28,3.14e+23,174600000000.0,OpenAI,Language
-gpt-3.5-turbo-instruct,gpt-3.5-turbo-instruct,GPT-3 175B (davinci),2020-05-28,3.14e+23,174600000000.0,OpenAI,Language
