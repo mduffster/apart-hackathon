@@ -53,8 +53,8 @@ Using **Method B filtering** (only including runs where models are below human p
 - **The "catching up to humans" problem is real**
 
 ### Baseline Timeline (6-month compute doubling)
-- **Near-AGI (0.8 METR)**: ~9.3 years (2035), 100% probability
-- **AGI (0.9 METR)**: ~9.5 years (2035), 100% probability
+- **Near-AGI (0.8 METR)**: ~14.7 years (2040), ~80% probability
+- **AGI (0.9 METR)**: ~16.5 years (2042), ~65% probability
 
 ### Efficiency Scenarios
 
