@@ -233,7 +233,7 @@ print(f"✅ Saved: outputs/04_key_scenarios.png")
 # ============================================================================
 
 fig, axes = plt.subplots(1, 2, figsize=(16, 8))
-fig.suptitle('Probability of Achieving Thresholds (within 10 years)', fontsize=18, fontweight='bold')
+fig.suptitle('Probability of Achieving Thresholds (within 20 years)', fontsize=18, fontweight='bold')
 
 # By scenario type
 ax = axes[0]
@@ -278,8 +278,14 @@ for i, row in prob_df.iterrows():
 ax = axes[1]
 
 prob_key = timelines[timelines['scenario'].isin(key_scenarios)].copy()
-near_probs = prob_key[prob_key['threshold'] == 'Near-AGI']['probability'].values * 100
-agi_probs = prob_key[prob_key['threshold'] == 'AGI']['probability'].values * 100
+# Sort to match key_scenarios order
+near_probs = []
+agi_probs = []
+for scenario in key_scenarios:
+    near = prob_key[(prob_key['scenario'] == scenario) & (prob_key['threshold'] == 'Near-AGI')]['probability']
+    agi = prob_key[(prob_key['scenario'] == scenario) & (prob_key['threshold'] == 'AGI')]['probability']
+    near_probs.append(near.values[0] * 100 if len(near) > 0 else 0)
+    agi_probs.append(agi.values[0] * 100 if len(agi) > 0 else 0)
 
 x_pos = np.arange(len(key_scenarios))
 width = 0.35

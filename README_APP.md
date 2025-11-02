@@ -48,39 +48,47 @@ The LUCR curve visualizes how much AI capability (ΔMETR) you gain per 10× incr
 ### Sidebar Parameters
 
 **📚 Example Scenarios** (expandable at top)
-- AGI Race: 3-month doubling
-- AGI + Algorithmic Breakthrough: 3mo + 1.2β + 20% translation
+- AGI Race: 3-month doubling, baseline efficiency
+- Better Architectures: +10% task translation efficiency
+- Training Breakthroughs: 1.2× algorithmic efficiency
+- Full Optimization: +20% task translation + 1.2× algorithmic + 3mo doubling
 - Regulatory Slowdown: 12-month doubling
-- Translation Efficiency Improvement: +10% boost
-- Sustained Efficiency Gains: 1.2β multiplier
 
 **Threshold Selection**
 - Near-AGI (0.8 METR): 80% of subhuman tasks at human level
 - AGI (0.9 METR): 90% of subhuman tasks at human level
 
 **Adjust Parameters:**
-- **β (Algorithmic Efficiency) multiplier** (0.7 - 1.3)
-  - Affects LUCR decay rate
-  - Higher β = slower decay = sustained efficiency gains
-  - Baseline = 1.0
-
-- **Translation Efficiency boost** (0% - 30%)
-  - Architectural improvements (better model designs, training techniques)
+- **Task Translation Efficiency boost** (0% - 30%)
+  - How well existing capability translates to task performance
+  - Shifts the **slope** of compute → capability mapping
+  - Equivalent to "less wasted horsepower"
   - Each +10% ≈ +0.6 shift in α parameter
   - Affects timelines but NOT LUCR curves
 
+- **Algorithmic Efficiency (β) multiplier** (0.7 - 1.3)
+  - How well training converts compute into general capability
+  - Raises the **ceiling** of what's possible
+  - Higher β = slower LUCR decay = "faster emergence"
+  - Affects both timelines AND LUCR curves
+  - Baseline = 1.0
+
 - **Compute doubling time** (3, 4, 6, 9, 12, or 18 months)
-  - How often compute resources double
+  - How often compute resources double (hardware scaling)
   - Faster doubling = earlier timelines
   - Baseline = 6 months
 
 ### How Parameters Affect Forecasts
 
-| Parameter | Affects Timelines | Affects LUCR Curve |
-|-----------|------------------|--------------------|
-| β multiplier | ✅ Yes | ✅ Yes |
-| Translation efficiency | ✅ Yes | ❌ No |
-| Compute doubling | ✅ Yes | ❌ No |
+| Parameter | Meaning | Affects Timelines | Affects LUCR Curve |
+|-----------|---------|------------------|--------------------|
+| **Task translation efficiency** | Task performance from capability | ✅ Yes | ❌ No |
+| **Algorithmic efficiency** | Capability from training compute | ✅ Yes | ✅ Yes |
+| **Compute doubling** | Hardware scaling rate | ✅ Yes | ❌ No |
+
+**Key distinction:**
+- **Algorithmic efficiency**: Raises the ceiling ("faster emergence")
+- **Task translation efficiency**: Shifts the slope ("less wasted horsepower")
 
 ## Data Requirements
 

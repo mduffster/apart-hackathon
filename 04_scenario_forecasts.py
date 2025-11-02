@@ -188,8 +188,8 @@ def calculate_timeline(scenario: ScenarioConfig, threshold_metr: float, posterio
     # Apply scenario shocks to posterior draws (not medians!)
     alpha_samples, beta_samples = scenario.apply_to_posterior(alpha_samples_base, beta_samples_base)
     
-    # Compute range to explore (next 10 years)
-    max_years = 10
+    # Compute range to explore (next 20 years to capture slower scenarios)
+    max_years = 20
     max_doublings = max_years * 12 / scenario.doubling_months
     max_compute = current_compute * (2 ** max_doublings)
     

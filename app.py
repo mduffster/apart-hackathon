@@ -12,7 +12,7 @@ st.set_page_config(page_title="LUCR Forecasting Dashboard", layout="wide")
 # Data paths
 OUTPUTS_DIR = Path("outputs")
 
-@st.cache_data
+@st.cache_data(ttl=60)  # Cache for 60 seconds only
 def load_data():
     """Load all required data files"""
     data = {}
@@ -23,7 +23,6 @@ def load_data():
         "stage1": "stage1_compute_eci.csv",
         "stage2": "stage2_eci_metr.csv",
         "posterior": "posterior_summary.csv",
-        "posterior_samples": "posterior_samples.csv",
         "current_state": "current_state.csv",
         "metr_runs": "filtered_metr_runs.csv"
     }
@@ -38,6 +37,23 @@ def load_data():
                 data[key] = None
         else:
             data[key] = None
+    
+    # Load posterior samples from parquet (preferred) or CSV fallback
+    parquet_path = OUTPUTS_DIR / "posterior_samples.parquet"
+    csv_path = OUTPUTS_DIR / "posterior_samples.csv"
+    if parquet_path.exists():
+        try:
+            data["posterior_samples"] = pd.read_parquet(parquet_path)
+        except Exception as e:
+            st.warning(f"Could not read posterior_samples.parquet: {e}")
+            if csv_path.exists():
+                data["posterior_samples"] = pd.read_csv(csv_path)
+            else:
+                data["posterior_samples"] = None
+    elif csv_path.exists():
+        data["posterior_samples"] = pd.read_csv(csv_path)
+    else:
+        data["posterior_samples"] = None
     
     return data
 
@@ -75,7 +91,7 @@ def calculate_timeline(posterior_samples, current_compute, threshold_metr,
     alpha_samples = alpha_samples_base + alpha_shift
     beta_samples = beta_samples_base * beta_mult
     
-    # Compute range (next 20 years)
+    # Compute range (next 20 years to capture slower scenarios)
     max_years = 20
     max_doublings = max_years * 12 / doubling_months
     max_compute = current_compute * (2 ** max_doublings)
@@ -155,29 +171,29 @@ st.sidebar.header("⚙️ Controls")
 with st.sidebar.expander("📚 Example Scenarios", expanded=False):
     st.markdown("""
     **AGI Race Scenario:**
+    - Translation efficiency: 0%
+    - Algorithmic efficiency: 1.0×
     - Compute doubling: 3 months
-    - β multiplier: 1.0
-    - Translation boost: 0%
     
-    **AGI + Algorithmic Breakthrough:**
+    **Better Architectures:**
+    - Translation efficiency: +10%
+    - Algorithmic efficiency: 1.0×
+    - Compute doubling: 6 months
+    
+    **Training Breakthroughs:**
+    - Translation efficiency: 0%
+    - Algorithmic efficiency: 1.2×
+    - Compute doubling: 6 months
+    
+    **Full Optimization:**
+    - Translation efficiency: +20%
+    - Algorithmic efficiency: 1.2×
     - Compute doubling: 3 months
-    - β multiplier: 1.2
-    - Translation boost: 20%
     
     **Regulatory Slowdown:**
+    - Translation efficiency: 0%
+    - Algorithmic efficiency: 1.0×
     - Compute doubling: 12 months
-    - β multiplier: 1.0
-    - Translation boost: 0%
-    
-    **Translation Efficiency Improvement:**
-    - Compute doubling: 6 months
-    - β multiplier: 1.0
-    - Translation boost: 10%
-    
-    **Sustained Efficiency Gains:**
-    - Compute doubling: 6 months
-    - β multiplier: 1.2
-    - Translation boost: 0%
     """)
 
 st.sidebar.markdown("---")
@@ -198,26 +214,26 @@ st.sidebar.markdown("---")
 st.sidebar.subheader("🎛️ Adjust Parameters")
 st.sidebar.caption("Move sliders to see updated forecasts")
 
-# Efficiency multiplier
+# Task translation efficiency (alpha shift) - FIRST
+translation_pct = st.sidebar.slider(
+    "Task translation efficiency boost (%)",
+    min_value=0,
+    max_value=30,
+    value=0,
+    step=5,
+    help="How well existing capability translates to task performance. Shifts the slope of compute → capability. Equivalent to 'less wasted horsepower.'"
+)
+alpha_shift = 0.06 * translation_pct  # Convert percentage to alpha shift (positive = better efficiency)
+
+# Algorithmic efficiency multiplier (beta) - SECOND
 eff_multiplier = st.sidebar.slider(
     "Algorithmic efficiency (β multiplier)",
     min_value=0.7,
     max_value=1.3,
     value=1.0,
     step=0.05,
-    help="Higher = slower LUCR decay = sustained efficiency gains. Baseline = 1.0"
+    help="How well training converts compute into general capability. Raises the ceiling of what's possible. Higher β = slower LUCR decay = 'faster emergence.'"
 )
-
-# Translation efficiency (alpha shift)
-translation_pct = st.sidebar.slider(
-    "Translation efficiency boost (%)",
-    min_value=0,
-    max_value=30,
-    value=0,
-    step=5,
-    help="Architectural improvements. Each +10% ≈ +0.6 shift in α"
-)
-alpha_shift = 0.06 * translation_pct  # Convert percentage to alpha shift (positive = better efficiency)
 
 # Compute doubling cadence
 doubling_months = st.sidebar.selectbox(
@@ -246,6 +262,13 @@ with tab1:
     if data["posterior_samples"] is not None and data["current_state"] is not None:
         current_compute = data["current_state"].iloc[0]['compute']
         current_date = datetime(2025, 11, 1)
+        
+        # DEBUG: Check first sample calculation
+        first_sample = data["posterior_samples"].iloc[0]
+        test_compute = current_compute * 2**10  # 10 doublings = 5 years
+        test_eci = first_sample['a'] + first_sample['b'] * np.log10(test_compute)
+        test_metr = expit(first_sample['alpha'] + first_sample['beta'] * test_eci)
+        st.caption(f"🔍 Sample 0: After 10 doublings (5yr), compute={test_compute:.2e}, METR={test_metr:.3f}")
         
         # Compute baseline forecast (6mo doubling, no efficiency changes)
         baseline_result = calculate_timeline(
@@ -476,11 +499,25 @@ with tab1:
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.metric("β Multiplier", f"{eff_multiplier:.2f}", delta=f"{(eff_multiplier-1)*100:+.0f}%" if eff_multiplier != 1.0 else None)
+            st.metric(
+                "Translation Efficiency", 
+                f"+{translation_pct}%" if translation_pct > 0 else "Baseline",
+                help="Task performance translation (α shift)"
+            )
         with col2:
-            st.metric("α Shift", f"{alpha_shift:.2f}", delta=f"{translation_pct:+.0f}%" if translation_pct > 0 else None)
+            st.metric(
+                "Algorithmic Efficiency", 
+                f"{eff_multiplier:.2f}×",
+                delta=f"{(eff_multiplier-1)*100:+.0f}%" if eff_multiplier != 1.0 else None,
+                help="Training capability conversion (β multiplier)"
+            )
         with col3:
-            st.metric("Doubling Time", f"{doubling_months} months", delta=f"{doubling_months-6:+d} mo" if doubling_months != 6 else None)
+            st.metric(
+                "Compute Doubling", 
+                f"{doubling_months} months", 
+                delta=f"{doubling_months-6:+d} mo" if doubling_months != 6 else None,
+                help="Hardware scaling rate"
+            )
     else:
         st.error("Missing required data: posterior_samples.csv or current_state.csv")
 
@@ -495,7 +532,7 @@ with tab2:
         representing diminishing returns.
         """)
         
-        st.info("📊 **Note:** This LUCR curve is only affected by the **β (Algorithmic Efficiency) multiplier**. Translation efficiency and compute doubling time affect timelines but not the LUCR decay rate.")
+        st.info("📊 **Note:** This LUCR curve is only affected by the **β (Algorithmic Efficiency) multiplier**, which controls how well training converts compute into capability. Translation efficiency (task performance) and compute doubling time affect timelines but not the LUCR decay rate itself.")
         
         lucr_df = data["lucr"].copy()
         
