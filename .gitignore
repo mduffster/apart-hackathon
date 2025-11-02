@@ -1,8 +1,8 @@
 __pycache__
 __pycache__/*
-data
-data/*
 archive
 archive/*
 outputs/archive/*
 outputs/archive
+app_framework
+app_framework/*

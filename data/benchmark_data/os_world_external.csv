@@ -1,0 +1,93 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Agent,Source,Source link,Notes (details),Date added,Trajectories
+CUA,38.1,2025-01-23,OpenAI,United States of America,,,OpenAI CUA (200 steps),OS World Website,https://os-world.github.io/,,2025-01-24,
+,34.5,,,,,,Agent S2 w/ Claude 3.7 (50 steps),OS World Website,https://os-world.github.io/,,2025-03-13,https://drive.google.com/drive/folders/18PTnMwgyhxIWTVNLMwf0sbzhvh9AlVqE?usp=drive_link
+claude-3-7-sonnet-20250219,28.0,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 Sonnet (100 steps),OS World Website,https://os-world.github.io/,,2025-02-24,
+,27.0,,,,,,Simular Agent S2 (15 steps),OS World Website,https://os-world.github.io/,,2025-03-13,https://drive.google.com/drive/folders/18PTnMwgyhxIWTVNLMwf0sbzhvh9AlVqE?usp=drive_link
+claude-3-7-sonnet-20250219,26.0,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 Sonnet (50 steps),OS World Website,https://os-world.github.io/,,2025-02-24,
+,24.6,,,,,,UI-TARS-72B-DPO (50 steps),OS World Website,https://os-world.github.io/,,2025-01-21,https://drive.google.com/file/d/1vUWlXVenkOc5F1s-z8DdpfU4Y5fUMssr/view?usp=drive_link
+,22.7,,,,,,UI-TARS-72B-DPO (15 steps),OS World Website,https://os-world.github.io/,,2025-01-21,
+claude-3-5-sonnet-20240620,22.0,2024-06-20,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",Claude 3.5 Sonnet (50 steps),OS World Website,https://os-world.github.io/,,2024-10-22,
+claude-3-5-sonnet-20241022,21.0,2024-10-22,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",Claude 3.5 Sonnet (new) (100 steps),OS World Website,https://os-world.github.io/,,2025-02-24,
+CUA,19.7,2025-01-23,OpenAI,United States of America,,,OpenAI CUA (15 steps),OS World Website,https://os-world.github.io/,,2025-01-24,
+claude-3-5-sonnet-20241022,19.5,2024-10-22,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",Claude 3.5 Sonnet (new) (50 steps),OS World Website,https://os-world.github.io/,,2025-02-24,
+,18.8,,,,,,UI-TARS-72B-SFT (15 steps),OS World Website,https://os-world.github.io/,,2025-01-21,
+,18.7,,,,,,UI-TARS-7B-DPO (15 steps),OS World Website,https://os-world.github.io/,,2025-01-21,
+,17.7,,,,,,UI-TARS-7B-SFT (15 steps),OS World Website,https://os-world.github.io/,,2025-01-21,
+,17.04,,,,,,Aguvis-72B w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-11-22,
+claude-3-7-sonnet-20250219,15.5,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 Sonnet (15 steps),OS World Website,https://os-world.github.io/,,2024-12-24,
+,15.15,,,,,,Aria-UI w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-12-24,
+claude-3-5-sonnet-20240620,14.9,2024-06-20,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",Claude 3.5 Sonnet (15 steps),OS World Website,https://os-world.github.io/,,2024-10-22,
+,14.79,,,,,,Aguvis-7B w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-11-22,
+,14.63,,,,,,OS-Atlas-Base-7B w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-10-30,
+,11.65,,,,,,OS-Atlas-Base-4B w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-10-30,
+,10.26,,,,,,Aguvis-72B,OS World Website,https://os-world.github.io/,,2024-11-22,
+,9.21,,,,,,SeeClick w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-10-30,
+Qwen2.5-VL-72B-Instruct,8.8,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",Qwen2.5-vl-72B,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2025-01-26,
+,8.7,,,,,,Ponder&Press w/ GPT-4o,OS World Website,https://os-world.github.io/,,2024-12-02,
+,8.12,,,,,,CogAgent-9B-20241220,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len =",2024-12-24,
+,7.81,,,,,,CRADLE w/ GPT-4o,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-06-14,https://drive.google.com/drive/folders/14_xlL-e0-0INq2O1THbhFKi6Z0bgfwR4?usp=drive_link
+gpt-4-1106-vision-preview,7.69,2023-11-06,OpenAI,United States of America,,,GPT-4 Vision,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-05-24,https://drive.google.com/file/d/1miMp-AR_hOfLUWszGb_aZG2f_Nd66Ntt/view?usp=drive_link
+,5.8,,,,,,Gemini-Pro Vision,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-03-20,https://drive.google.com/file/d/17jgZEjslxIZPC5kuzOq6oTK5EuDiJ-_l/view?usp=drive_link
+gpt-4-turbo-2024-04-09,5.4,2024-04-09,OpenAI,United States of America,,Training compute estimated to be 2.2e25 FLOP using benchmark imputation. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4 Vision (0409),OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-04-23,https://drive.google.com/drive/folders/1NLsHdLUNZOHsEC5xNZ4e4PHkDC5IELjj?usp=drive_link
+gemini-1.5-pro-001,5.4,2024-05-24,Google DeepMind,"United States of America,United Kingdom of Great Britain and Northern Ireland",,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini-Pro-1.5,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 128k",2024-04-03,https://drive.google.com/drive/folders/1j-YVzEGAGWxXgse75MCnhUCTVuejM76A?usp=drive_link
+,5.26,,,,,,GPT-4 Vision (2024-03-20),OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-03-20,
+gpt-4o-2024-05-13,5.03,2024-05-13,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4o,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-05-20,https://drive.google.com/file/d/1mN12zjCiawfU4k1ifPsLW-hcuzPV7Voz/view?usp=drive_link
+gpt-4o-mini-2024-07-18,3.77,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",GPT-4o-mini,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 128k",2024-08-17,https://drive.google.com/file/d/1Skq_uMcAR08LMDnIpOswjxm5ntbVXm5M/view?usp=drive_link
+,3.33,,,,,,InternVL2,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len =",2024-08-17,https://drive.google.com/file/d/1KSYs7ZOhEkjBQX5UnMpLkbxZZ6BLhbDm/view?usp=drive_link
+claude-3-opus-20240229,2.42,2024-02-29,Anthropic,United States of America,,Training compute estimated to be 1.64e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Claude-3-Opus,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 200k",2024-03-20,
+,2.42,,,,,,Llava-OneVision,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len =",2024-08-17,https://drive.google.com/file/d/1geppLqwV80p66bXdffVBbLayjCkIQ9mk/view?usp=drive_link
+,2.42,,,,,,Qwen-vl-Max-0809,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len = 32k",2024-09-10,https://drive.google.com/drive/folders/1iBOXZpknCi1Fqzg0fQMG6CZc9NWrwdkf?usp=drive_link
+,1.88,,,,,,MiniCPM-V 2.6,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len =",2024-08-17,https://drive.google.com/file/d/1T58G_EIr4pWZYJ8plXEWspFHr35g-Nsy/view?usp=drive_link
+,1.11,,,,,,CogAgent,OS World Website,https://os-world.github.io/,"t=1.0, top-p=0.9
+
+len =",2024-03-20,
+,42.5,,,,,,UI-TARS-1.5 (100 steps),OS World Website,https://os-world.github.io/,,2025-04-17,https://drive.google.com/file/d/1e7SCYqpxFX2FCGEOhf6jcVvwkx3leIKf/view?usp=drive_link
+,41.4,,,,,,Agent S2 w/ Gemini 2.5 (50 steps),OS World Website,https://os-world.github.io/,,2025-04-18,https://drive.google.com/drive/folders/18PTnMwgyhxIWTVNLMwf0sbzhvh9AlVqE?usp=drive_link
+,26.92,,,,,,UI-TARS-1.5 7B (100 steps),OS World Website,https://os-world.github.io/,,2025-04-17,
+,8.22,,,,,,Kimi-VL,OS World Website,https://os-world.github.io/,,2025-04-10,
