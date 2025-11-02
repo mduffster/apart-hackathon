@@ -206,7 +206,8 @@ threshold_options = {
 threshold_label = st.sidebar.selectbox(
     "Capability threshold",
     options=list(threshold_options.keys()),
-    index=1
+    index=1,
+    key="threshold_select"
 )
 threshold_value = threshold_options[threshold_label]
 
@@ -221,6 +222,7 @@ translation_pct = st.sidebar.slider(
     max_value=30,
     value=0,
     step=5,
+    key="translation_slider",
     help="How well existing capability translates to task performance. Shifts the slope of compute → capability. Equivalent to 'less wasted horsepower.'"
 )
 alpha_shift = 0.06 * translation_pct  # Convert percentage to alpha shift (positive = better efficiency)
@@ -232,6 +234,7 @@ eff_multiplier = st.sidebar.slider(
     max_value=1.3,
     value=1.0,
     step=0.05,
+    key="beta_slider",
     help="How well training converts compute into general capability. Raises the ceiling of what's possible. Higher β = slower LUCR decay = 'faster emergence.'"
 )
 
@@ -240,6 +243,7 @@ doubling_months = st.sidebar.selectbox(
     "Compute doubling time (months)",
     options=[3, 4, 6, 9, 12, 18],
     index=2,
+    key="doubling_select",
     help="How often compute resources double. Baseline = 6 months"
 )
 
@@ -402,26 +406,33 @@ with tab1:
         with col2:
             st.subheader("Summary")
             
-            # Baseline stats
-            if baseline_result['probability'] > 0:
+            # If we have both baseline and adjusted, show side by side
+            if baseline_result['probability'] > 0 and adjusted_result and adjusted_result['probability'] > 0:
+                sum_col1, sum_col2 = st.columns(2)
+                
+                with sum_col1:
+                    st.markdown("**Baseline**")
+                    st.metric("Timeline", f"{baseline_result['median_years']:.1f}y")
+                    st.metric("Date", baseline_result['median_date'].strftime('%b %Y'))
+                    st.metric("Prob.", f"{baseline_result['probability']:.0%}")
+                
+                with sum_col2:
+                    st.markdown("**Adjusted**")
+                    delta_years = adjusted_result['median_years'] - baseline_result['median_years']
+                    st.metric(
+                        "Timeline", 
+                        f"{adjusted_result['median_years']:.1f}y",
+                        delta=f"{delta_years:+.1f}y"
+                    )
+                    st.metric("Date", adjusted_result['median_date'].strftime('%b %Y'))
+                    st.metric("Prob.", f"{adjusted_result['probability']:.0%}")
+            
+            # Otherwise show baseline only
+            elif baseline_result['probability'] > 0:
                 st.markdown("**Baseline (6mo doubling)**")
                 st.metric("Median Timeline", f"{baseline_result['median_years']:.1f} years")
                 st.metric("Median Date", baseline_result['median_date'].strftime('%b %Y'))
                 st.metric("Probability", f"{baseline_result['probability']:.1%}")
-            
-            # Adjusted stats
-            if adjusted_result and adjusted_result['probability'] > 0:
-                st.markdown("---")
-                st.markdown("**Your Adjusted Forecast**")
-                
-                delta_years = adjusted_result['median_years'] - baseline_result['median_years']
-                st.metric(
-                    "Median Timeline", 
-                    f"{adjusted_result['median_years']:.1f} years",
-                    delta=f"{delta_years:+.1f} years"
-                )
-                st.metric("Median Date", adjusted_result['median_date'].strftime('%b %Y'))
-                st.metric("Probability", f"{adjusted_result['probability']:.1%}")
         
         # Distribution histogram
         st.markdown("---")
