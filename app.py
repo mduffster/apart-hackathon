@@ -400,13 +400,17 @@ with tab1:
                 st.altair_chart(timeline_chart, width="stretch")
                 
                 st.caption("**Dark bar:** 50% confidence interval (P25-P75) | **Light bar:** 90% CI (P05-P95) | **Circle:** Median")
+                
+                # Warning if adjusted didn't reach threshold
+                if adjusted_result and adjusted_result['probability'] == 0:
+                    st.warning(f"⚠️ **Adjusted scenario:** Threshold not reached within 20 years (only showing baseline)")
             else:
-                st.warning("Threshold not reached within 20 years in forecasts")
+                st.warning("Threshold not reached within 20 years in any forecast")
         
         with col2:
             st.subheader("Summary")
             
-            # If we have both baseline and adjusted, show side by side
+            # If we have both baseline and adjusted with both reaching threshold
             if baseline_result['probability'] > 0 and adjusted_result and adjusted_result['probability'] > 0:
                 sum_col1, sum_col2 = st.columns(2)
                 
@@ -426,6 +430,22 @@ with tab1:
                     )
                     st.metric("Date", adjusted_result['median_date'].strftime('%b %Y'))
                     st.metric("Prob.", f"{adjusted_result['probability']:.0%}")
+            
+            # If adjusted exists but didn't reach threshold
+            elif baseline_result['probability'] > 0 and adjusted_result and adjusted_result['probability'] == 0:
+                sum_col1, sum_col2 = st.columns(2)
+                
+                with sum_col1:
+                    st.markdown("**Baseline**")
+                    st.metric("Timeline", f"{baseline_result['median_years']:.1f}y")
+                    st.metric("Date", baseline_result['median_date'].strftime('%b %Y'))
+                    st.metric("Prob.", f"{baseline_result['probability']:.0%}")
+                
+                with sum_col2:
+                    st.markdown("**Adjusted**")
+                    st.metric("Timeline", "—")
+                    st.caption("Not reached in 20 years")
+                    st.metric("Prob.", "0%")
             
             # Otherwise show baseline only
             elif baseline_result['probability'] > 0:
