@@ -539,8 +539,8 @@ with tab2:
     if data["lucr"] is not None:
         st.markdown("""
         **LUCR** (Linking Utility and Compute Rate) measures how much AI capability improves 
-        per 10× increase in training compute. As models scale, LUCR typically decays, 
-        representing diminishing returns.
+        per 10× increase in training compute. As models scale, LUCR typically grows, 
+        representing higher returns.
         """)
         
         st.info("📊 **Note:** This LUCR curve is only affected by the **β (Algorithmic Efficiency) multiplier**, which controls how well training converts compute into capability. Translation efficiency (task performance) and compute doubling time affect timelines but not the LUCR decay rate itself.")
